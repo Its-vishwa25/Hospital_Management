@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Receptionist</title>
+</head>
+<body style="background-color:powderblue;">
+<hr> <hr>
+	<H1 align="center">Shree Hospital</H1>
+	<hr> 
+Hello! <span th:text="${username}"></span>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+<hr>
+<h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+<a th:href="@{receptionist/receptionistAppointments}">Appointments</a>
+<a th:href="@{receptionist/receptionistSchedule}">Schedules</a>
+<a th:href="@{receptionist/createInvoice}">Create invoice</a>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>In Time</th>
+                <th>Out Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dr.Samir</td>
+                <td>9:00 AM</td>
+                <td>5:00 PM</td>
+            </tr>
+            <tr>
+                <td>Dr.Rahul</td>
+                <td>5:30 AM</td>
+                <td>1:30 PM</td>
+            </tr>
+                        <tr>
+                <td>Dr.Samina</td>
+                <td>9:00 AM</td>
+                <td>5:00 PM</td>
+            </tr>
+            <tr>
+                <td>Dr.Rasika</td>
+                <td>5:30 AM</td>
+                <td>1:30 PM</td>
+            </tr>
+
+            <tr>
+                <td>Dr.anup</td>
+                <td>9:00 AM</td>
+                <td>5:00 PM</td>
+            </tr>
+            <tr>
+                <td>Dr.Rashmika</td>
+                <td>5:30 AM</td>
+                <td>1:30 PM</td>
+            </tr>
+
+            <!-- Add more rows for additional staff members -->
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head  >
+<meta charset="ISO-8859-1">
+<title>new appointment</title>
+</head>
+<body style="background-color:powderblue;">
+	 <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px powderblue;;
+            border-radius: 8px;
+            background-color:powderblue;
+        }
+        .success-message {
+            color: rgb(0, 0, 255);
+            font-weight: bold;
+            
+        }
+    </style>
+<hr> <hr>
+	<H1 align="center">Shree Hospital</H1>
+	<hr> 
+<div align="center">
+        <h1>Create New Appointment</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${appointment}">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Patient name:</td>
+                    <td><input type="text" th:field="*{patientName}" /></td>
+                </tr>
+                <tr>
+                    <td>doctor name:</td>
+                    <td><input type="text" th:field="*{doctorName}" /></td>
+                </tr>
+                <tr>
+                    <td>date:</td>
+                    <td><input type="date" th:field="*{date}" /></td>
+                </tr>
+                
+                 <tr>
+                    <td>Need prescription?</td>
+                    <td><input type="text" th:field="*{prescription}" /></td>
+                </tr>
+                
+                <tr>
+					<td>         
+    <script>
+        function showSuccessMessage() {
+            document.getElementById("successMsg").style.display = "block";
+        }
+    </script>
+
+    <div class="container">
+       
+        <button onclick="showSuccessMessage()" style="font-size: 20px;">Save</button>
+        <p id="successMsg" class="success-message" style="display: none;">Success! You clicked the button.</p>
+    </div></td>
+					
+                    <!--<td colspan="2"><button type="submit">Save</button> </td>-->
+                </tr>
+            </table>
+  
+        </form>
+    </div>
+</body>
+</html>

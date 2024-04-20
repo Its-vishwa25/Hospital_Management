@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient profile</title>
+</head>
+<body style="background-color:powderblue;">
+	<style>
+		
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration:solid;
+  font-size: 21px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body {margin:0;}
+
+.icon-bar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.button {
+  cursor: pointer;
+width: 150px;
+height: 150px;
+tab-size: 150px;
+color: rgb(243, 241, 241);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #106ee9;
+  border: 2px solid #0c0c0c;
+ 
+}
+.button:hover{background-color: #3a09ec}
+.button:active{
+  background-color: #0b2ce9;
+  box-shadow: 0 5px #614ffa;
+  transform: translateY(4px);
+}
+
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            background-image: url('hospital.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(0, 0, 255);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .service {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .service p {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+.container1 {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.review {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.review-text {
+    font-style: italic;
+    line-height: 1.5;
+}
+
+    
+
+	</style>
+
+<hr>
+<H1 align="center" style="font-size: large; font-family: Arial, Helvetica, sans-serif; background-color: blue;">Shree Hospital</H1>
+<hr>
+<div class="topnav">
+
+
+           <a th:href="@{main}">Home</a>
+           <a th:href="@{Gallery}">Gallary</a>
+            <a th:href="@{Services}">Services</a>
+            <a th:href="@{AboutUs}" >AboutUs</a>
+            <a th:href="@{ContactUs}">Contact</a>
+            <a th:href="@{Location}">Location</a>
+</div>
+Hello! <span th:text ="${username}"></span> <br>
+<br>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+<hr>
+<a th:href="@{patients/myAppointments}">view appointments</a>
+<a th:href="@{/viewPrescription}">view prescriptions</a>
+<a th:href="@{patients/cancelAppointment}">cancel appointment</a>
+<hr><hr>
+Schedule your visit by booking an appointment: <a th:href="@{/add}">book appointment</a>
+<br>
+<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+
+<div >
+  <div class="w3-content w3-display-container">
+    <img class="mySlides" src="/images/img1.jpg">
+    <img class="mySlides" src="/images/img3.jpeg">
+    <img class="mySlides" src="/images/img4.jpg">
+   
+     
+<div class="w3-center w3-display-bottommiddle" style="width:100%">
+
+  <div> <div class="container1">
+        <h1>Customer Reviews</h1>
+        <div class="review">
+            <div class="reviewer-info">
+                <img src="/images/customerimg.png" alt="Customer 1">
+                <h2>John Doe</h2>
+            </div>
+            <p class="review-text">Best Staff and Services, Environment is very calm and healthy for patient recovery</p>
+        </div>
+        <div class="review">
+            <div class="reviewer-info">
+                <img src="/images/customerimg.png" alt="Customer 2">
+                <h2>Jane Smith</h2>
+            </div>
+            <p class="review-text">Doctors are so talented and their treatment is worthy.</p>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+   
+
+
+
+<script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+  </script>
+   <div class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h2>Your Health, Our Priority</h2>
+                <p>We are committed to providing high-quality healthcare services to our community.</p>
+            </div>
+        </div>
+
+        <div class="services">
+            <div class="service">
+                <h3>Emergency Care</h3>
+                <p>We provide 24/7 emergency care services.</p>
+            </div>
+            <div class="service">
+                <h3>Primary Care</h3>
+                <p>Our primary care services focus on preventive healthcare and routine check-ups.</p>
+            </div>
+            <div class="service">
+                <h3>Specialized Treatments</h3>
+                <p>We offer a wide range of specialized treatments and procedures.</p>
+            </div>
+        </div>
+    </div>
+
+ 
+<footer>
+        
+			<div>
+				<div>
+			Vishwajeet Solunke 
+			9011360246
+			</div>
+			Pratiksha Sisath
+			788832177
+			</div>
+			<p>
+		&copy;	2024 Our Hospital. All rights reserved.
+		</p>
+    </footer>
+
+</body>
+</html>

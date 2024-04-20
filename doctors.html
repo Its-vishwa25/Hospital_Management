@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient profile</title>
+</head>
+<body style="background-color:powderblue;">
+	
+	<style>
+		
+		      body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .invite-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .invite-button:hover {
+            background-color: #45a049;
+        }
+  
+		
+		.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration:solid;
+  font-size: 21px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+	</style>
+<hr>
+<H1 align="center" style="font-size: large; font-family: Arial, Helvetica, sans-serif; background-color: blue;">Shree Hospital</H1>
+<hr>
+Hello! DR:<span th:text="${username}"></span>
+<form action=# th:action="@{/logout}" >
+<input type="submit" value="logout">
+</form>
+
+<div class="topnav">
+<a th:href="@{/jsoncalendar}">Schedule</a> 
+<a th:href="@{doctors/doctorAppointments}">Appointments</a> 
+   <a th:href="@{main}">Home</a>
+           <a th:href="@{Gallery}">Gallary</a>
+            <a th:href="@{Services}">Services</a>
+            <a th:href="@{AboutUs}" >AboutUs</a>
+            <a th:href="@{ContactUs}">Contact</a>
+            <a th:href="@{Location}">Location</a>
+            </div>
+            
+        
+        
+      
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Disease</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ram</td>
+                <td>35</td>
+                <td>Fever</td>
+                <td>9:00 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>rashi</td>
+                <td>45</td>
+                <td>Flu</td>
+                <td>10:30 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>Rakesh</td>
+                <td>25</td>
+                <td>ECG</td>
+                <td>9:00 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>Sanika</td>
+                <td>21</td>
+                <td>X-Ray</td>
+                <td>12:30 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>Ramla</td>
+                <td>45</td>
+                <td>Fever</td>
+                <td>2:00 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>Rahim</td>
+                <td>41</td>
+                <td>Plaster</td>
+                <td>12:30 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>mahesh</td>
+                <td>28</td>
+                <td>fracture</td>
+                <td>1:10 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>atul</td>
+                <td>35</td>
+                <td>Flu</td>
+                <td>11:30 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>samiksha</td>
+                <td>35</td>
+                <td>Fever, Cold</td>
+                <td>9:10 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>rashmika</td>
+                <td>20</td>
+                <td>headche</td>
+                <td>01:30 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>Ramnik</td>
+                <td>25</td>
+                <td>Cold</td>
+                <td>9:00 AM</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <tr>
+                <td>iIshita/td>
+                <td>15</td>
+                <td>Flu</td>
+                <td>10:00 pm</td>
+                <td><button class="invite-button">Invite</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+
+        
+            
+</body>
+</html>
